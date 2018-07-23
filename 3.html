@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>svg元素</title>
+</head>
+<body>
+<h1>你可以深入 SVG 复杂的细节，但这对我们即将创建的图标不是必须的。以下列表涵盖了我们将用到的构建块。</h1>
+<ul>
+    <li><code>&lt;svg&gt;</code> 包裹并定义整个矢量图。<code>&lt;svg&gt;</code> 标签之于矢量图就如同 <code>&lt;html&gt;</code> 标签之于一个 web 页面。
+    </li>
+    <li><code>&lt;line&gt;</code> 创建一条直线。</li>
+    <li><code>&lt;polyline&gt;</code> 创建折线。</li>
+    <li><code>&lt;rect&gt;</code> 创建矩形。</li>
+    <li><code>&lt;ellipse&gt;</code> 创建圆和椭圆。</li>
+    <li><code>&lt;polygon&gt;</code> 创建多边形。</li>
+    <li><code>&lt;path&gt;</code> 通过指定点以及点和点之间的线来创建任意形状。</li>
+    <li><code>&lt;defs&gt;</code> 定义一个可复用的图形。初始情况下 <code>&lt;defs&gt;</code> 里面的内容是不可见的。<code>&lt;defs&gt;</code>
+        标签之于矢量图就如同 <code>&lt;head&gt;</code> 标签之于一个 web 页面。
+    </li>
+    <li><code>&lt;g&gt;</code> 将多种形状组合起来。将组合后的形状置于 <code>&lt;defs&gt;</code> 中可以让它能够被复用。</li>
+    <li><code>&lt;symbol&gt;</code> 类似于一个组合，但是拥有一些额外的特性。通常被置于 <code>&lt;defs&gt;</code> 标签中便于复用。</li>
+    <li><code>&lt;use&gt;</code> 获取在 <code>&lt;defs&gt;</code> 中定义的复用对象并在 <code>SVG</code> 中显示出来。</li>
+</ul>
+</body>
+</html>

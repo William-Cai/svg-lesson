@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆环动画-使用stroke-dasharray</title>
+    <style>
+        .circle-load-svg {
+            stroke-dasharray: 0,570;
+            animation: rot 3s linear infinite;
+
+        }
+        @keyframes rot {
+            100% {
+                stroke-dasharray: 570,570;
+                /*stroke-dashoffset: 0;*/
+            }
+        }
+    </style>
+</head>
+<body>
+<svg class="circle-load" version="1.1"
+     baseProfile="full"
+     width="200" height="200"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <circle cx="100" cy="100" r="90" stroke-width="20" stroke="gainsboro" fill="none"></circle>
+    <circle cx="100" cy="100" r="90" stroke-width="20" stroke="darkturquoise" fill="none" class="circle-load-svg"></circle>
+</svg>
+
+</body>
+</html>

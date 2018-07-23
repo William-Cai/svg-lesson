@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画svg</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            background: #e9e9e9;
+        }
+
+        body {
+            margin: 0;
+            text-align: center;
+        }
+
+        .grid {
+            width: 750px;
+            height: 500px;
+            margin: 0 auto;
+            padding-top: 100px;
+            padding-left: 100px;
+            background-image: url('grid.png');
+            position: relative;
+        }
+
+        .grid::before {
+            content: "";
+            border-left: 1px solid #7c7cea;
+            position: absolute;
+            top: 0;
+            left: 100px;
+            width: 750px;
+            height: 600px;
+        }
+
+        .grid::after {
+            content: "";
+            border-top: 1px solid #7c7cea;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 850px;
+            height: 500px;
+        }
+
+        svg {
+            stroke: #000;
+            /*stroke-width: 5;*/
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .animate {
+            animation: ani ease 2s 0s infinite;
+        }
+        @keyframes ani {
+            from {
+                stroke-dasharray: 0;
+            }
+            to {
+                stroke-dasharray: 600;
+            }
+        }
+
+
+        .text {
+            fill: none;
+            stroke-width: 5;
+            stroke-dasharray: 0 300;
+            stroke-dashoffset: 0;
+        }
+
+        .text:nth-child(3n + 1) {
+            stroke: #F60A0A;
+            animation: stroke 6s  ease-in-out forwards;
+
+        }
+        .text:nth-child(3n + 2) {
+            stroke: #F2FF14;
+            animation: stroke1 6s  ease-in-out forwards;
+
+        }
+
+        .text:nth-child(3n + 3) {
+            stroke: #FB9505;
+            animation: stroke2 6s  ease-in-out forwards;
+
+        }
+
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 1000;
+                stroke-dasharray: 80 160;
+            }
+        }
+
+        @keyframes stroke1 {
+            100% {
+                stroke-dashoffset: 1080;
+                stroke-dasharray: 80 160;
+            }
+        }
+
+
+        @keyframes stroke2 {
+            100% {
+                stroke-dashoffset: 1160;
+                stroke-dasharray: 80 160;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="grid">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         version="1.1"
+         baseProfile="full"
+         width="750"
+         height="500">
+        <defs>
+            <g id="leftalign">
+                <!-- Left align icon made with lines -->
+                <line x1="3" y1="3" x2="48" y2="3"></line>
+                <line x1="3" y1="19" x2="65" y2="19"></line>
+                <line x1="3" y1="35" x2="48" y2="35"></line>
+                <line x1="3" y1="51" x2="65" y2="51"></line>
+            </g>
+            <g id="browser">
+                <!-- Browser icon made with rectangle and lines -->
+                <rect x="3" y="3" width="80" height="60">
+                    <animate
+                            attributeName="width"
+                            attributeType="XML"
+                            from="200" to="80"
+                            begin="0s" dur="2s" repeatCount="indefinite"
+                            fill="freeze" />
+                </rect>
+                <line x1="3" y1="19" x2="83" y2="19"></line>
+                <line x1="20" y1="3" x2="20" y2="17"></line>
+
+            </g>
+            <g id="rightcaret">
+                <!-- Right caret icon made with a polyline -->
+                <polyline points="3 3,30 28, 3 53,">
+                </polyline>
+            </g>
+            <!--polyline points="0 5, 50 30, 0 55"></polyline>
+            <rect x="10" y="60" width="100" height="100" rx="10" ry="10"></rect>
+            <ellipse cx="100" cy="220" rx="40" ry="40"></ellipse>
+            <ellipse cx="100" cy="240" rx="2" ry="2" fill="black"></ellipse>
+            <line x1="100" y1="200" x2="100" y2="225" stroke-width="10"></line>
+            <ellipse cx="100" cy="320" rx="40" ry="40"></ellipse>
+            <polygon points="90 300, 120 320, 90 340"></polygon>
+            <path id="download" d="M50 370 L80 370 L80 400 L100 400 L100 400 L65 430 L30 400 L50 400 L50 370 Z"></path>-->
+            <symbol id="alert" viewBox="0 0 86 86">
+                <!-- Alert icon made with ellipses and a line -->
+                <ellipse cx="43" cy="43" rx="40" ry="40"></ellipse>
+                <ellipse style="fill:black;" cx="43" cy="65" rx="5" ry="5"></ellipse>
+                <line style="stroke-width: 8;" x1="43" y1="19" x2="43" y2="48"></line>
+            </symbol>
+
+            <symbol id="play" viewBox="0 0 86 86">
+                <g>
+                    <!-- Play icon made with ellipse and polygon -->
+                    <ellipse cx="43" cy="43" rx="40" ry="40"></ellipse>
+                    <polygon points="35 23, 60 43, 35 63"/>
+                </g>
+            </symbol>
+            <symbol id="download" viewBox="0 0 64 71">
+                <!-- Download icon made with path -->
+                <path d="
+                    M 18 3
+                    L 46 3
+                    L 46 40
+                    L 61 40
+                    L 32 68
+                    L 3 40
+                    L 18 40
+                    Z
+                "></path>
+            </symbol>
+
+        </defs>
+
+        <use class="animate" href="#leftalign" x="100" y="100"></use>
+        <use href="#rightcaret" x="300" y="100"></use>
+        <use href="#browser" x="500" y="100"></use>
+        <use href="#alert" x="100" y="200" width="50" height="100"></use>
+        <use href="#play" x="300" y="200" width="100" height="100"></use>
+        <use href="#download" x="500" y="200" width="100" height="100"></use>
+        <path fill="#1EB287">
+            <animate
+                    attributeName="d"
+                    dur="1440ms"
+                    repeatCount="indefinite"
+                    keyTimes="0;
+                       .0625;
+                       .208333333;
+                       .3125;
+                       .395833333;
+                       .645833333;
+                       .833333333;
+                       1"
+                    calcMode="spline"
+                    keySplines="0,0,1,1;
+                         .42,0,.58,1;
+                         .42,0,1,1;
+                         0,0,.58,1;
+                         .42,0,.58,1;
+                         .42,0,.58,1;
+                         .42,0,.58,1"
+                    values="M 0,0
+                     C 50,0 50,0 100,0
+                     100,50 100,50 100,100
+                     50,100 50,100 0,100
+                     0,50 0,50 0,0
+                     Z;
+
+                     M 0,0
+                     C 50,0 50,0 100,0
+                     100,50 100,50 100,100
+                     50,100 50,100 0,100
+                     0,50 0,50 0,0
+                     Z;
+
+                     M 50,0
+                     C 75,25 75,25 100,50
+                     75,75 75,75 50,100
+                     25,75 25,75 0,50
+                     25,25 25,25 50,0
+                     Z;
+
+                     M 25,50
+                     C 37.5,25 37.5,25 50,0
+                     75,50 75,50 100,100
+                     50,100 50,100 0,100
+                     12.5,75 12.5,75 25,50
+                     Z;
+
+                     M 25,50
+                     C 37.5,25 37.5,25 50,0
+                     75,50 75,50 100,100
+                     50,100 50,100 0,100
+                     12.5,75 12.5,75 25,50
+                     Z;
+
+                     M 50,0
+                     C 77.6,0 100,22.4 100,50
+                     100,77.6 77.6,100 50,100
+                     22.4,100, 0,77.6, 0,50
+                     0,22.4, 22.4,0, 50,0
+                     Z;
+
+                     M 50,0
+                     C 77.6,0 100,22.4 100,50
+                     100,77.6 77.6,100 50,100
+                     22.4,100, 0,77.6, 0,50
+                     0,22.4, 22.4,0, 50,0
+                     Z;
+
+                     M 100,0
+                     C 100,50 100,50 100,100
+                     50,100 50,100 0,100
+                     0,50 0,50 0,0
+                     50,0 50,0 100,0
+                     Z;"/>
+        </path>
+
+        <g>
+            <rect x="0" y="0" width="30" height="30" style="fill: #ccc;"/>
+            <circle cx="30" cy="30" r="15" style="fill: #cfc; stroke: green;"/>
+            <animateMotion from="0,0" to="60,30" dur="4s" fill="freeze" repeatCount="indefinite"/>
+        </g>
+        <g>
+            <rect x="0" y="0" width="30" height="30" style="fill: #ccc;"/>
+            <circle cx="30" cy="30" r="15" style="fill: #cfc; stroke: green;"/>
+            <animateMotion path="M50,125 C 100,25 150,225, 200, 125" dur="4s" fill="freeze" repeatCount="indefinite"/>
+        </g>
+
+        <path d="M100,110 A120,120 -45 0,1 110 10 A120,120 -45 0,1 100,110"
+              stroke="lightgrey" stroke-width="2"
+              fill="none" id="theMotionPath"/>
+        <circle cx="" cy="" r="5" fill="red">
+            <!-- Define the motion path animation -->
+            <animateMotion dur="6s" repeatCount="indefinite">
+                <mpath xlink:href="#theMotionPath"/>
+            </animateMotion>
+        </circle>
+
+        <path d="M20,230 Q40,205 50,230 T90,230" id="pathrotate"></path>
+        <polygon points="20 205, 25 220, 15 220">
+            <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+                <mpath xlink:href="#pathrotate"></mpath>
+            </animateMotion>
+        </polygon>
+    </svg>
+
+    <svg viewBox="0 0 1320 800">
+
+        <!-- Symbol -->
+        <symbol id="s-text">
+            <text text-anchor="middle"
+                  x="50%" y="50%" dy="0.35em">
+                IV-WEB
+            </text>
+        </symbol>
+
+        <!-- Duplicate symbols -->
+        <use xlink:href="#s-text" class="text"
+        ></use>
+        <use xlink:href="#s-text" class="text"
+        ></use>
+        <use xlink:href="#s-text" class="text"
+        ></use>
+
+
+    </svg>
+</div>
+</body>
+</html>
