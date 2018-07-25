@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>饼图-stroke-dasharray使用</title>
+    <style>
+        @keyframes fillup{
+            to{
+                stroke-dasharray: 158,158;
+            }
+        }
+        svg{
+            /*transform: rotate(-90deg);*/
+            /*background: yellowgreen;*/
+            /*border-radius: 50%;*/
+        }
+        circle{
+            animation: fillup 5s linear infinite;
+            animation-play-state: running;
+        }
+        circle:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+<svg class="circle-load" version="1.1"
+     baseProfile="full"
+     width="200" height="200"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <circle class="circle" r="25" cx="100" cy="100" fill="yellowgreen" stroke="#655"
+            stroke-width="50" transform="rotate(-90deg)"
+            stroke-dasharray="2,156"></circle>
+</svg>
+<script>
+
+</script>
+</body>
+</html>

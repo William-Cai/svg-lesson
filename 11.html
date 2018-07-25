@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>饼图-文字居中</title>
+    <style>
+        @keyframes fillup{
+            to{
+                stroke-dasharray: 158,158;
+            }
+        }
+        svg{
+            background: yellowgreen;
+            border-radius: 50%;
+        }
+        circle{
+            animation: fillup 5s linear infinite;
+            animation-play-state: running;
+        }
+        circle:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+<svg class="circle-load" version="1.1"
+     baseProfile="full"
+     width="200" height="200"
+     viewBox="0 0 100 100"
+     xmlns="http://www.w3.org/2000/svg">
+
+    <circle class="circle" r="25" cx="100" cy="100" fill="yellowgreen" stroke="#655"
+            stroke-width="50"
+            stroke-dasharray="0,156"></circle>
+    <text x="50%" y="50%" text-anchor="middle">
+        <tspan>99%</tspan>
+    </text>
+</svg>
+<script>
+
+</script>
+</body>
+</html>

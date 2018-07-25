@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>饼图-多个饼图</title>
+    <style>
+        @keyframes fillup{
+            to{
+                stroke-dasharray: 158,158;
+            }
+        }
+        svg{
+            /*transform: rotate(-90deg);*/
+            /*background: yellowgreen;*/
+            /*border-radius: 50%;*/
+        }
+        circle{
+            animation: 5s linear infinite;
+            animation-play-state: running;
+        }
+        circle:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+<svg class="circle-load" version="1.1"
+     baseProfile="full"
+     width="200" height="200"
+     xmlns="http://www.w3.org/2000/svg">
+    <circle class="circle" r="25" cx="100" cy="100" fill="none" stroke="#f00"
+            stroke-width="50"
+            stroke-dasharray="100,157"></circle>
+    <circle class="circle" r="25" cx="100" cy="100" fill="none" stroke="#0f0"
+            stroke-width="50"
+            stroke-dasharray="57,157" stroke-dashoffset="-100"></circle>
+</svg>
+<script>
+
+</script>
+</body>
+</html>
